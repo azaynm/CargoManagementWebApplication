@@ -54,7 +54,7 @@ const AssignTruck = () => {
         />
       </div>
       <Scroll>
-        <SearchList filteredTrucks={filteredTrucks} />
+        <SearchList filteredTrucks={filteredTrucks} fetchTruckData={fetchTruckData}/>
       </Scroll>
       <div className='d-flex justify-content-end'>
         {/* Additional content */}

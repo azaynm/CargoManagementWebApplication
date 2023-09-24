@@ -11,6 +11,7 @@ import ViewRequests from './pages/ViewRequests';
 import MaintenanceSummary from './pages/MaintenanceSummary';
 import AssignTruckForm from './pages/AssignTruckForm';
 import Dashboard from './pages/Dashboard';
+import EditTruck from './pages/EditTruck';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/maintenance-summary" element={<MaintenanceSummary />} />
             <Route path="/view-requests" element={<ViewRequests />} />
             <Route path="/assign-truck/:id" element={<AssignTruckForm />} />
+            <Route path="/edit-truck/:id" element={<EditTruck />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>

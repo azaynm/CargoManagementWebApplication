@@ -96,6 +96,7 @@ const AddTruck = () => {
     const formData = new FormData();
     formData.append('vehicleNumber', newTruck.vehicleNumber);
     formData.append('chasisNumber', newTruck.chasisNumber);
+    formData.append('curbWeight', newTruck.curbWeight);
     formData.append('manufacturer', newTruck.manufacturer);
     formData.append('fuelType', newTruck.fuelType);
     formData.append('power', newTruck.power);

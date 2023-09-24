@@ -60,6 +60,26 @@ router.post("/upload", upload.single("image"), async(req, res) => {
         .catch(err => res.status(400).json('Error: '+ err));
 });
 
+router.post("/update-truck", upload.single("image"), async(req, res) => {
+  
+  const result = await cloudinary.v2.uploader.upload(req.file.path);
+
+  
+  const cart = await Truck.findByIdAndUpdate(req.body.id, {
+    vehicleNumber: req.body.vehicleNumber,
+    chasisNumber: req.body.chasisNumber,
+    curbWeight: req.body.curbWeight,
+    manufacturer: req.body.manufacturer,
+    fuelType: req.body.fuelType,
+    power: req.body.power,
+    noOfStaff: req.body.noOfStaff,
+    image: result.secure_url
+}).then(()=> res.json('Truck Updated'))
+        .catch(err => res.status(400).json('Error: '+ err));
+});
+
+
+
 
 router.get('/trucks', async (req, res) => {
     const trucks = await Truck.find();
@@ -83,6 +103,11 @@ router.get('/getImage/:id', async (req, res) => {
 router.get('/trucks/truck/count', async (req, res) => {
   const trucks = await Truck.find();
   res.json(trucks.length);
+})
+
+router.delete('/delete/:id', async (req, res) => {
+  const result = await Truck.findByIdAndDelete(req.params.id)
+  res.json(result)
 })
 
 export default router;
